@@ -13,11 +13,10 @@ let createIncreasingDepthCountSequence (inputArray: int[]) = [|
             0
     |]
 
-let result = 
-    File.ReadAllLines(".\Input\1.txt")
-    |> Array.map int 
-    |> createTriples
-    |> Array.map (fun (x,y,z) -> x+y+z)
-    |> createIncreasingDepthCountSequence
-    |> Seq.sum
-    |> printfn "The sum is %d"
+File.ReadAllLines(".\Input\1.txt")
+|> Array.map int 
+|> createTriples
+|> Array.map (fun (x,y,z) -> x+y+z)
+|> createIncreasingDepthCountSequence
+|> Seq.sum
+|> printfn "The sum is %d"

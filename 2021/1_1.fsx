@@ -8,8 +8,7 @@ let createIncreasingDepthCountSequence (inputArray: string[]) = seq {
             0
     }
     
-let result = 
-    File.ReadAllLines(".\Input\1.txt") 
-    |> createIncreasingDepthCountSequence
-    |> Seq.sum
-    |> printfn "The sum is %d"
+File.ReadAllLines(".\Input\1.txt") 
+|> createIncreasingDepthCountSequence
+|> Seq.sum
+|> printfn "The sum is %d"
