@@ -1,21 +1,25 @@
 open System.IO
 
-let lines = File.ReadLines(".\Input\1.txt") |> Seq.toArray |> Array.map int
+let createTriples (inputArray: int [])= [|
+    for n in 0..inputArray.Length-3 do
+        inputArray.[n], inputArray.[n+1], inputArray.[n+2]
+    |]
 
-let triples = [|
-    for n in 0..lines.Length-3 do
-        lines.[n], lines.[n+1], lines.[n+2]
-|]
-
-let newinput = triples |> Array.map (fun (x,y,z) -> x+y+z)
-
-let sequence = seq {
-    for n in 0..newinput.Length-2 do
-        if newinput.[n] < newinput.[n+1] then
+let createIncreasingDepthCountSequence (inputArray: int []) = [|
+    for n in 0..inputArray.Length-2 do
+        if inputArray.[n] < inputArray.[n+1] then
             1
         else
             0
-    }
+    |]
 
-let result = sequence |> Seq.sum
-printfn "The sum is %s" (result.ToString())
+let result = 
+    File.ReadAllLines(".\Input\1.txt")
+    |> Array.map int 
+    |> createTriples
+    |> Array.map (fun (x,y,z) -> x+y+z)
+    |> createIncreasingDepthCountSequence
+    |> Seq.sum
+    |> string
+
+printfn "The sum is %s" result 
