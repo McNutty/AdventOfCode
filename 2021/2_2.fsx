@@ -15,7 +15,7 @@ let updatePosition (direction, value) =
 File.ReadAllLines(".\Input\2.txt") 
 |> Array.map string
 |> Array.map (fun line ->  
-                let arr = line.Split ' '
+                let arr = line.Split(' ')
                 arr.[0], int(arr.[1]))
 |> Array.iter updatePosition
 

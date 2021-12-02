@@ -1,11 +1,11 @@
 open System.IO
 
-let createTriples (inputArray: int [])= [|
+let createTriples (inputArray: int[])= [|
     for n in 0..inputArray.Length-3 do
         inputArray.[n], inputArray.[n+1], inputArray.[n+2]
     |]
 
-let createIncreasingDepthCountSequence (inputArray: int []) = [|
+let createIncreasingDepthCountSequence (inputArray: int[]) = [|
     for n in 0..inputArray.Length-2 do
         if inputArray.[n] < inputArray.[n+1] then
             1
@@ -20,6 +20,4 @@ let result =
     |> Array.map (fun (x,y,z) -> x+y+z)
     |> createIncreasingDepthCountSequence
     |> Seq.sum
-    |> string
-
-printfn "The sum is %s" result 
+    |> printfn "The sum is %d"

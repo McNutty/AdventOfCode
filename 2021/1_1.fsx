@@ -1,6 +1,6 @@
 open System.IO
 
-let createIncreasingDepthCountSequence (inputArray: string []) = seq {
+let createIncreasingDepthCountSequence (inputArray: string[]) = seq {
     for n in 0..inputArray.Length-2 do
         if int(inputArray.[n]) < int(inputArray.[n+1]) then
             1
@@ -12,6 +12,4 @@ let result =
     File.ReadAllLines(".\Input\1.txt") 
     |> createIncreasingDepthCountSequence
     |> Seq.sum
-    |> string
-
-printfn "The sum is %s" result
+    |> printfn "The sum is %d"
